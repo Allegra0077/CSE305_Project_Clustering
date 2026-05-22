@@ -2,9 +2,11 @@
 #include "dendrogram.h"
 #include <sstream>
 #include <string>
+#include <iomanip>
 
 void write_dendrogram(std::ostream& out, const Dendrogram& d) {
     out << "cluster_a,cluster_b,distance,new_size\n";
+    out << std::setprecision(15); // added extra precision since output file was underprecise when comparing with scipy output
     for (const Merge& m : d) {
         out << m.cluster_a << ","
             << m.cluster_b << ","
