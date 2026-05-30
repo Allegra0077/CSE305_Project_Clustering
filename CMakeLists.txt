@@ -37,15 +37,15 @@ add_executable(hc_matrix_cpu
 target_include_directories(hc_matrix_cpu PRIVATE src)
 
 # Youssef's matrix CUDA executable
-#add_executable(hc_matrix_cuda
+add_executable(hc_matrix_cuda
 #    src/matrix_cuda/main.cpp
-#    src/matrix_cuda/matrix_hc_cuda.cu
+    src/matrix_cuda/matrix_hc_cuda.cu
     src/matrix_cuda/kernels.cu
-#    src/common/dataset_loader.cpp
-#    src/common/dendrogram.cpp
-#    src/common/distance.cpp
-#)
-#target_include_directories(hc_matrix_cuda PRIVATE src)
+    src/common/dataset_loader.cpp
+    src/common/dendrogram.cpp
+    src/common/distance.cpp
+)
+target_include_directories(hc_matrix_cuda PRIVATE src)
 
 # Standalone tests
 add_executable(test_union_find tests/test_union_find.cpp src/mst/union_find.cpp)
